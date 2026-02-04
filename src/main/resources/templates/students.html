@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sinh viên</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f2f4f8;
+            margin: 0;
+            padding: 40px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: #ffffff;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #eaf2ff;
+        }
+        
+        td {
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>📘 DANH SÁCH SINH VIÊN</h2>
+
+    <div class="card">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Email</th>
+            </tr>
+
+            <tr th:each="sv : ${students}">
+                <td th:text="${sv.id}"></td>
+                <td th:text="${sv.name}"></td>
+                <td th:text="${sv.age}"></td>
+                <td th:text="${sv.email}"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
